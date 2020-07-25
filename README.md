@@ -1,4 +1,6 @@
 # GMSPromise
+## 겜스에 추가
+promiseLibrary.gml 을 걍 넣으삼
 ## 간단한사용법
 ~~~
 new Promise().
