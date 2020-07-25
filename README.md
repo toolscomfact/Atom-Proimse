@@ -1,5 +1,6 @@
 # GMSPromise
 ## 간단한사용법
+~~~
 new Promise().
 Then(function(callback){
   // 함수1
@@ -14,4 +15,5 @@ Then(function(callback){
   // 에러잡기
   show_debug_message(err);
 })
-.Go() // 
+.Go() // 실행
+~~~
