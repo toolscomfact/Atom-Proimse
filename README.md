@@ -11,7 +11,7 @@ Then(function(callback){
 .Then(function(callback, param)){
   // 함수2
   show_debug_message(param);
-  throw;
+  throw("error");
 }
 .Catch(function(err){
   // 에러잡기
