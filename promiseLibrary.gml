@@ -53,17 +53,3 @@ promise = function() constructor{
 	ReturnStruct.ReturnStruct = ReturnStruct;
 	Then = ReturnStruct.Then;
 }
-
-new promise()
-.Then(function(callback) {
-	show_message("해위");
-	callback(10);
-})
-.Then(function(callback, param){
-	show_message("ㅋㅋ ㅠㅠ");
-	callback();
-})
-.Catch(function() {
-	show_message("에러 ^~^");
-})
-.Go();
