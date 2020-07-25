@@ -1,6 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-globalvar promise;
+globalvar promise, waterfall;
 
 promise = function() constructor{
 	
@@ -56,4 +56,32 @@ promise = function() constructor{
 	
 	ReturnStruct.ReturnStruct = ReturnStruct;
 	Then = ReturnStruct.Then;
+}
+
+waterfall = function(methods) constructor {
+	struct = {
+		_methods : methods,
+		
+		callback_done : 0,
+		callback_count : array_length(_methods),
+		complete : noone,
+		
+		go : function(){
+			for (var i=0; i<array_length(_methods); i++){
+				methods(
+					function(){
+						callback_done ++;
+						
+						if (callback_done >= callback_count){
+							complete();
+						}
+					}
+				);
+			}
+		}
+	}
+	
+	Then = function(_method){
+		struct.complete = _method;
+	}
 }
