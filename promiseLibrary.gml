@@ -40,12 +40,16 @@ promise = function() constructor{
 			return ReturnStruct;
 		},
 		Go : function (){
-			try{
-			    var nowMethod = _methods[|_method_callstack];
-					
+			var nowMethod = _methods[|_method_callstack];
+
+			if (_method_catch != 0){
+				try{
+					nowMethod(Callback);
+				}catch (except){
+					_method_catch(except);
+				}
+			}else{
 				nowMethod(Callback);
-			}catch (except){
-				_method_catch(except);
 			}
 		}
 	};
